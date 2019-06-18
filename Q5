@@ -1,0 +1,8 @@
+Steps for passwordless ssh between 2ec2 instance:
+1)First create two ec2 instances, one should act as source and other should be destination
+2)Both the instances should have same security groups
+3)In source instance generate a new rsa key with ssh-keygen -t rsa -N "" -f /home/ubuntu/.ssh/id_rsa
+4)Copy the id_rsa.public of source into the destination .ssh/authorized_keys
+5)Give chmod 600 .ssh/authorized_keys
+6)Now perform ssh at source using ssh -i id_rsa ubuntu@public_id_of_destination
+
